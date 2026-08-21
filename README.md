@@ -1,4 +1,3 @@
-
 local Global = (getgenv and getgenv()) or shared
 -- [[ Services ]] --
 local Speed = tick()
@@ -1118,11 +1117,26 @@ else
 
 end
 table.insert(Events, Player.Chatted:Connect(function(Text)
-	if Text == "Gale fighter" then
+	if Text == "gelatek skid" then
 		local TelService = game:GetService("TeleportService")
 		TelService:Teleport(10613034992)
 	end
 end))
+
+do -- Bug Reporting
+	local Bindable = Instance.new("BindableFunction")
+	local function Copy(e)
+		setclipboard("https://discord.gg/7tdu3ZuKbH")
+		Bindable:Destroy()
+	end
+	Bindable.OnInvoke = Copy
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Have fun!";
+		Text = "Click copy  to join the pendulum hub discord!";
+		Duration = 10;
+		Callback = Bindable,
+		Button1 = "Copy";
+	})
 end
 
 end)
